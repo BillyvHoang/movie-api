@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function App() {
   const [endPoint, setEndPoints] = useState('');
   const [container, setContainer] = useState([]);
+  const [finalPoint, setFinalPoint] = useState('');
 
   const fetchMe = () => {
     const options = {
@@ -26,7 +27,7 @@ function App() {
 
   useEffect(() => {
     fetchMe();
-  }, [endPoint]);
+  }, [finalPoint]);
 
   const onChangeHandler = (e) => {
     setEndPoints(e.target.value);
@@ -34,6 +35,7 @@ function App() {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    setFinalPoint(endPoint);
   };
 
   return (
@@ -43,8 +45,8 @@ function App() {
         <button type="submit">submit</button>
       </form>
 
-      {container.map((item) => (
-        <div>
+      {container.map((item, index) => (
+        <div key={index}>
           <img src={item.i.imageUrl} alt="" />
           <p>{item.l}</p>
         </div>
