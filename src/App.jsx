@@ -39,7 +39,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="App">
       <form onSubmit={submitHandler}>
         <input type="text" value={endPoint} onChange={onChangeHandler} />
         <button type="submit">submit</button>
