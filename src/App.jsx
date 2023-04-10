@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function App() {
   const [endPoint, setEndPoints] = useState('');
+  const [container, setContainer] = useState([]);
 
   const options = {
     method: 'GET',
@@ -14,6 +15,9 @@ function App() {
   fetch('https://imdb8.p.rapidapi.com/auto-complete?q=game%20of%20thr', options)
     .then((response) => response.json())
     .then((response) => console.log(response))
+    .then((data) => {
+      setContainer(data);
+    })
     .catch((err) => console.error(err));
 
   const onChangeHandler = (e) => {
