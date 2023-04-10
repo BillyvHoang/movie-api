@@ -24,9 +24,13 @@ function App() {
     setEndPoints(e.target.value);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={submitHandler}>
         <input type="text" value={endPoint} onChange={setEndPoints} />
         <button type="submit">submit</button>
       </form>
